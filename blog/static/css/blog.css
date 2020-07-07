@@ -53,3 +53,28 @@ h1, h2, h3, h4 {
 .post h2 a, .post h2 a:visited {
     color: #000000;
 }
+
+＃content {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.tdate {
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;  
+}
+
+thead, tbody{
+    display: block;
+}
+
+tbody {
+    overflow-y: scroll;
+    height: 150px;
+}
+
+.test{
+    font-size: 10pt;
+}

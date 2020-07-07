@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+<table class='table table-hover'>
+    <thead class="thead-light">
+    <tr class="d-flex">
+        <th scope="col">rank</th>
+        <th scope="col">商品画像</th>
+        <th scope="col">商品名</th>
+        <th scope="col">楽天価格</th>
+        <th scope="col">Amazon価格</th>
+        <th scope="col">AmazonRank</th>
+        <th scope="col">keepa</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in itemlist %}
+    <tr class="d-flex">
+        <th scope="row">{{item.4}}</td>
+        <td><img src={{item.5}}></td>
+        <td><a href={{item.1}}>{{item.0}}</a></td>
+        <td>{{item.3}}</td>
+        <td>{{item.7}}</td>
+        <td>{{item.11}}</td>
+        <td><a href="https://keepa.com/#!product/5-{{item.6}}">{{item.6}}</a></td>
+    </tr>
+    {% endfor%}
+    </tbody>
+</table>
+</div>
+{% endblock %}

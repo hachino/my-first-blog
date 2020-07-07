@@ -1,7 +1,10 @@
+# coding: UTF-8
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+import csv
+from mysite.settings import BASE_DIR
 
 # Create your views here.
 def post_list(request):
@@ -39,3 +42,16 @@ def post_edit(request, pk):
     else:
             form = PostForm(instance=post)   
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def item_index(request):
+
+    CSV_PATH = BASE_DIR + "/data/items.csv"
+    ITEM_LIST = []
+
+    with open(CSV_PATH, newline="") as data :
+        reader = csv.reader(data)
+        for row in reader:
+            ITEM_LIST.append(row)
+
+    # params = [1,2,3,4,5]
+    return render(request, 'blog/item_index.html', {'itemlist':ITEM_LIST})
